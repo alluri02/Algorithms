@@ -1,67 +1,38 @@
-# 🛠️ REST API Preparation Guide
+# 📘 REST API Preparation Guide
 
-## 📘 What is a REST API?
+## Table of Contents
 
-A **REST (Representational State Transfer) API** is a stateless, client-server architectural style that defines a set of constraints and properties based on HTTP. It enables communication between clients and servers via standard HTTP methods.
-
----
-
-## 🌐 Key HTTP Methods
-
-| Method  | Description          | Use Case                |
-|---------|----------------------|--------------------------|
-| GET     | Read data            | Fetch user info         |
-| POST    | Create new data      | Add a new user          |
-| PUT     | Update existing data | Replace full user record|
-| PATCH   | Partial update       | Modify user email       |
-| DELETE  | Remove data          | Delete a user           |
-
----
-
-## 📌 REST API Constraints
-
-1. **Client-Server**: Separation of concerns.
-2. **Stateless**: Each request is independent.
-3. **Cacheable**: Responses must define cacheability.
-4. **Uniform Interface**: Simplified and standardized interface.
-5. **Layered System**: Middleware permitted between client & server.
-6. **Code-on-Demand (optional)**: Servers can send executable code.
+1. [What is a REST API?](#what-is-a-rest-api)
+2. [Key Concepts of REST](#key-concepts-of-rest)
+3. [HTTP Methods](#http-methods)
+4. [HTTP Status Codes](#http-status-codes)
+5. [URI Design Best Practices](#uri-design-best-practices)
+6. [Request and Response Format](#request-and-response-format)
+7. [Authentication and Authorization](#authentication-and-authorization)
+8. [Versioning](#versioning)
+9. [Error Handling](#error-handling)
+10. [Pagination, Filtering, and Sorting](#pagination-filtering-and-sorting)
+11. [Rate Limiting](#rate-limiting)
+12. [API Documentation (Swagger/OpenAPI)](#api-documentation-swaggeropenapi)
+13. [Tools for Testing REST APIs](#tools-for-testing-rest-apis)
+14. [REST vs SOAP](#rest-vs-soap)
+15. [Best Practices](#best-practices)
 
 ---
 
-## ✅ Best Practices
+## What is a REST API?
 
-### 🧾 Resource Naming
+A REST (Representational State Transfer) API is a web service that adheres to REST architectural principles, allowing clients to perform operations using standard HTTP methods.
 
-- Use **nouns**, not verbs:
-  - ✅ `GET /users`
-  - ❌ `GET /getUsers`
-
-- Use **plural nouns**:
-  - ✅ `/users`
-  - ❌ `/user`
-
-### 📚 Versioning
-
-- URL versioning:
-  - `/api/v1/users`
-- Header versioning:
-  - `Accept: application/vnd.api.v1+json`
-
-### 📈 Status Codes
-
-| Code | Meaning                  |
-|------|---------------------------|
-| 200  | OK                        |
-| 201  | Created                   |
-| 204  | No Content                |
-| 400  | Bad Request               |
-| 401  | Unauthorized              |
-| 403  | Forbidden                 |
-| 404  | Not Found                 |
-| 500  | Internal Server Error     |
-
-### 🧮 Query Parameters
-
+Example:
 ```http
-GET /users?age=30&sort=name&page=2&limit=10
+GET /api/users/1 HTTP/1.1
+Host: example.com
+
+## Key Concepts of REST
+
+- **Stateless**:  
+  Every request from the client must contain all the information needed for the server to process it. The server does not store anything about the client's session between requests.
+
+- **Client-Server**:  
+  The client and server operate independently, wi
