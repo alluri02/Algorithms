@@ -57,6 +57,8 @@ int size = map.size();
 // Clear map
 map.clear();
 
+```
+
 ## 🔹 Important Methods with Examples
 
 ### ✅ `getOrDefault()`
@@ -64,12 +66,16 @@ Returns the value for a key, or a default if the key is missing.
 
 ```java
 int value = map.getOrDefault("orange", 0); // returns 0 if "orange" not found
+```
+
 ### ✅ `putIfAbsent()`
 
 Inserts only if the key is not already present.
 
 ```java
 map.putIfAbsent("grape", 5); // adds only if "grape" is not already in map
+```
+
 
 ### ✅ `computeIfAbsent()`
 
@@ -79,6 +85,7 @@ Computes and inserts a value only if the key is absent.
 Map<String, List<String>> groupMap = new HashMap<>();
 
 groupMap.computeIfAbsent("anagram", k -> new ArrayList<>()).add("nagaram");
+```
 
 ### ✅ `keySet()`, `values()`, `entrySet()`
 
@@ -97,6 +104,7 @@ Set<String> keys = map.keySet();              // Set of keys
 Collection<Integer> vals = map.values();      // Collection of values
 Set<Map.Entry<String, Integer>> entries = map.entrySet(); // Set of entries
 
+```
 ## 🔧 Useful Methods in Java `Map` (with Examples)
 
 | Method                        | Description                                      | Example                                                |
@@ -128,6 +136,40 @@ Set<Map.Entry<String, Integer>> entries = map.entrySet(); // Set of entries
 - When the number of entries exceeds the product of the load factor (default 0.75) and the bucket array size, the map **resizes** — doubling the bucket array and redistributing entries.
 
 ---
+
+# Why Does `HashMap` Allow One Null Key in Java?
+
+`HashMap` in Java allows **one null key** because of how it handles hashing and storage internally:
+
+- **Null key is treated specially:**  
+  When you put a key-value pair with a `null` key, `HashMap` doesn’t call `hashCode()` on the key (which would cause a `NullPointerException` if it tried). Instead, it stores the entry in a **special bucket dedicated for the null key**.
+
+- **Why only one null key?**  
+  Since keys in a `Map` must be unique, there can be only one null key. If you insert another null key, it will **replace the previous null key’s value**.
+
+- **Difference from `Hashtable`:**  
+  `Hashtable` does **not allow null keys or null values** because it was designed before Java 1.2 and is synchronized, so it avoids nulls to prevent ambiguity and potential errors.
+
+- **In contrast, `TreeMap` doesn’t allow null keys** because it relies on keys being comparable (via `compareTo()` or a `Comparator`), and `null` cannot be compared.
+
+### Summary
+
+| Map Implementation | Null Key Allowed? | Reason                              |
+|--------------------|-------------------|-----------------------------------|
+| `HashMap`          | Yes (only one)    | Special handling; stores in null bucket |
+| `Hashtable`        | No                | Legacy, synchronized, avoids nulls |
+| `TreeMap`           | No                | Keys must be comparable; null cannot be compared |
+
+---
+
+### Quick Example:
+
+```java
+Map<String, Integer> map = new HashMap<>();
+map.put(null, 10);
+map.put(null, 20);  // replaces previous null key value
+System.out.println(map.get(null));  // Output: 20
+```
 
 ## 2. What is the difference between `HashMap` and `Hashtable` internally?
 
@@ -417,6 +459,5 @@ Set<Map.Entry<String, Integer>> entries = map.entrySet(); // Set of entries
 
 ---
 
-Need example code or deeper explanations for any of these problems?
 
 
