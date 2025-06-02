@@ -1,4 +1,4 @@
-# 📘 Java `Map` Overview
+# 📘 Java `Map Data Structure` Overview
 
 Java `Map` is a part of the `java.util` package and is used to store **key-value pairs**, where **keys are unique** and each key maps to a **single value**.
 
