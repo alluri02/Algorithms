@@ -33,6 +33,43 @@
 
 ---
 
+## 🧠 Understanding `buildHeap()` – Why is the Time Complexity O(n)?
+
+The time complexity of `buildHeap()` (which converts an array into a valid heap) is **O(n)** — even though it appears we are looping through `n/2` elements. Here's why.
+
+---
+
+### 🔑 Key Insight: Not All `heapify()` Calls Take Equal Time
+
+The trick lies in how **deep** the `heapify()` call might go:
+
+- Nodes **near the bottom** (close to leaves) can only move a little.
+- Nodes **near the top** (like the root) can sink deeper and require more operations.
+
+---
+
+### 📊 Level-wise Cost Analysis
+
+We analyze the cost based on the depth of each node:
+
+| Level (from bottom) | Number of Nodes | Max Heapify Work (Depth) |
+|---------------------|------------------|---------------------------|
+| h (leaves)          | n / 2            | 0                         |
+| h - 1               | n / 4            | 1                         |
+| h - 2               | n / 8            | 2                         |
+| ...                 | ...              | ...                       |
+| 0 (root)            | 1                | h                         |
+
+---
+
+### 📈 Total Cost
+
+```text
+T(n) = (n/2) * 0 + (n/4) * 1 + (n/8) * 2 + (n/16) * 3 + ... + 1 * h
+     < n * (1/4 + 2/8 + 3/16 + ...)
+     = O(n)
+```
+
 ## 4. Common Methods in Java's PriorityQueue (Min Heap by default)
 
 ```java
