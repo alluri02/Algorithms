@@ -113,6 +113,14 @@ consumer.start();
 - Implement Producer-Consumer with `ArrayBlockingQueue`.
 - Difference between `put()` vs `offer()`?
 
+| Method    | Blocking Behavior                 | Return Type | When to Use                           |
+|-----------|-----------------------------------|-------------|----------------------------------------|
+| `put()`   | Blocks if the queue is full       | `void`      | When you want to wait for space to insert |
+| `offer()` | Does **not block** (immediate)    | `boolean`   | When you want to try inserting, and handle failure gracefully |
+| `offer(E e, timeout, unit)` | Waits for specified time for space | `boolean` | When you want to insert, but don’t want to wait indefinitely |
+
+---
+
 ### 🟡 Intermediate
 - Use `PriorityBlockingQueue` to execute high-priority tasks first.
 - How would you implement rate-limiting or retries using BlockingQueue?
