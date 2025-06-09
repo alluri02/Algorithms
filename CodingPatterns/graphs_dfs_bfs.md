@@ -77,3 +77,95 @@ for (int[] edge : edges) {
 
 **Tip:** Choose adjacency list for most problems unless graph is dense or edge lookup speed is critical.
 
+
+# Example Problem: Number of Connected Components in an Undirected Graph
+
+## Problem
+You have `n` nodes labeled from `0` to `n-1` and a list of undirected edges.  
+Return the number of connected components in the graph.
+
+---
+
+## DFS Solution (Java)
+
+```java
+public int countComponents(int n, int[][] edges) {
+    Map<Integer, List<Integer>> graph = new HashMap<>();
+    
+    // Construct adjacency list
+    for (int[] edge : edges) {
+        graph.computeIfAbsent(edge[0], x -> new ArrayList<>()).add(edge[1]);
+        graph.computeIfAbsent(edge[1], x -> new ArrayList<>()).add(edge[0]);
+    }
+
+    Set<Integer> visited = new HashSet<>();
+    int components = 0;
+
+    // For each node, if not visited, do DFS and count component
+    for (int i = 0; i < n; i++) {
+        if (!visited.contains(i)) {
+            dfs(i, visited, graph);
+            components++;
+        }
+    }
+
+    return components;
+}
+
+private void dfs(int node, Set<Integer> visited, Map<Integer, List<Integer>> graph) {
+    if (visited.contains(node)) return;
+
+    visited.add(node);
+
+    for (int neighbor : graph.getOrDefault(node, new ArrayList<>())) {
+        dfs(neighbor, visited, graph);
+    }
+}
+```
+# Path Finding: Shortest Path using BFS
+
+## Intuition
+
+- BFS explores nodes in layers (or levels).
+- In an unweighted graph, the first time BFS reaches a node, it has found the shortest path to that node.
+- BFS naturally calculates the shortest distance from the start node to every reachable node.
+
+---
+
+## Example Problem: Shortest Path in an Unweighted Graph
+
+### Problem
+Given an unweighted graph and a start node, find the shortest distance from the start node to all other nodes.
+
+---
+
+## BFS Solution (Java)
+
+```java
+public int[] shortestPath(int n, int[][] edges, int start) {
+    Map<Integer, List<Integer>> graph = new HashMap<>();
+    for (int[] edge : edges) {
+        graph.computeIfAbsent(edge[0], x -> new ArrayList<>()).add(edge[1]);
+        graph.computeIfAbsent(edge[1], x -> new ArrayList<>()).add(edge[0]);
+    }
+
+    int[] distance = new int[n];
+    Arrays.fill(distance, -1); // -1 means unreachable
+    distance[start] = 0;
+
+    Queue<Integer> queue = new LinkedList<>();
+    queue.add(start);
+
+    while (!queue.isEmpty()) {
+        int node = queue.poll();
+        for (int neighbor : graph.getOrDefault(node, new ArrayList<>())) {
+            if (distance[neighbor] == -1) {  // Not visited
+                distance[neighbor] = distance[node] + 1;
+                queue.add(neighbor);
+            }
+        }
+    }
+
+    return distance;
+}
+```
