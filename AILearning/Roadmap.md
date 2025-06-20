@@ -1,4 +1,4 @@
-# 🎯 AI Learning Roadmap for a Senior Engineer
+# 🎯 AI Learning Roadmap
 
 ## 🧠 Goal
 To transition into AI/ML with a strong foundational and applied skill set, and build two real-world assistants:
