@@ -7,9 +7,21 @@ import com.example.patterns.creational.builder.House;
 import com.example.patterns.creational.builder.Pizza;
 import com.example.patterns.creational.abstractfactory.Application;
 import com.example.patterns.structural.adapter.AudioPlayer;
+import com.example.patterns.structural.bridge.BridgePatternDemo;
+import com.example.patterns.structural.composite.CompositePatternDemo;
+import com.example.patterns.structural.decorator.DecoratorPatternDemo;
+import com.example.patterns.structural.facade.FacadePatternDemo;
+import com.example.patterns.structural.flyweight.FlyweightPatternDemo;
+import com.example.patterns.structural.proxy.ProxyPatternDemo;
 import com.example.patterns.behavioral.observer.WeatherStation;
 import com.example.patterns.behavioral.observer.PhoneDisplay;
 import com.example.patterns.behavioral.observer.TabletDisplay;
+import com.example.patterns.behavioral.strategy.StrategyPatternDemo;
+import com.example.patterns.behavioral.command.CommandPatternDemo;
+import com.example.patterns.behavioral.state.StatePatternDemo;
+import com.example.patterns.behavioral.templatemethod.TemplateMethodPatternDemo;
+import com.example.patterns.behavioral.chainofresponsibility.ChainOfResponsibilityPatternDemo;
+import com.example.patterns.behavioral.mediator.MediatorPatternDemo;
 
 /**
  * Main class demonstrating various design patterns
@@ -29,19 +41,63 @@ public class Main {    public static void main(String[] args) {
         
         // Abstract Factory Pattern Demo
         demonstrateAbstractFactory();
-        
-        System.out.println("STRUCTURAL PATTERNS:");
+          System.out.println("STRUCTURAL PATTERNS:");
         // Adapter Pattern Demo
         demonstrateAdapter();
         
-        System.out.println("BEHAVIORAL PATTERNS:");
+        // Bridge Pattern Demo
+        demonstrateBridge();
+        
+        // Composite Pattern Demo
+        demonstrateComposite();
+        
+        // Decorator Pattern Demo
+        demonstrateDecorator();
+        
+        // Facade Pattern Demo
+        demonstrateFacade();
+        
+        // Flyweight Pattern Demo
+        demonstrateFlyweight();
+        
+        // Proxy Pattern Demo
+        demonstrateProxy();
+          System.out.println("BEHAVIORAL PATTERNS:");
         // Observer Pattern Demo
         demonstrateObserver();
         
-        System.out.println("Run individual pattern demos:");
+        // Strategy Pattern Demo
+        demonstrateStrategy();
+        
+        // Command Pattern Demo
+        demonstrateCommand();
+        
+        // State Pattern Demo
+        demonstrateState();
+        
+        // Template Method Pattern Demo
+        demonstrateTemplateMethod();
+        
+        // Chain of Responsibility Pattern Demo
+        demonstrateChainOfResponsibility();
+        
+        // Mediator Pattern Demo
+        demonstrateMediator();        System.out.println("Run individual pattern demos:");
         System.out.println("   java com.example.patterns.creational.prototype.PrototypeDemo");
         System.out.println("   java com.example.patterns.creational.objectpool.ObjectPoolDemo");
         System.out.println("   java com.example.patterns.creational.dependencyinjection.DependencyInjectionDemo");
+        System.out.println("   java com.example.patterns.structural.bridge.BridgePatternDemo");
+        System.out.println("   java com.example.patterns.structural.composite.CompositePatternDemo");
+        System.out.println("   java com.example.patterns.structural.decorator.DecoratorPatternDemo");
+        System.out.println("   java com.example.patterns.structural.facade.FacadePatternDemo");
+        System.out.println("   java com.example.patterns.structural.flyweight.FlyweightPatternDemo");
+        System.out.println("   java com.example.patterns.structural.proxy.ProxyPatternDemo");
+        System.out.println("   java com.example.patterns.behavioral.strategy.StrategyPatternDemo");
+        System.out.println("   java com.example.patterns.behavioral.command.CommandPatternDemo");
+        System.out.println("   java com.example.patterns.behavioral.state.StatePatternDemo");
+        System.out.println("   java com.example.patterns.behavioral.templatemethod.TemplateMethodPatternDemo");
+        System.out.println("   java com.example.patterns.behavioral.chainofresponsibility.ChainOfResponsibilityPatternDemo");
+        System.out.println("   java com.example.patterns.behavioral.mediator.MediatorPatternDemo");
     }
     
     private static void demonstrateSingleton() {
@@ -137,6 +193,78 @@ public class Main {    public static void main(String[] args) {
         macApp.render();
         macApp.interact();
         
+        System.out.println();
+    }
+    
+    private static void demonstrateBridge() {
+        System.out.println("--- Bridge Pattern ---");
+        BridgePatternDemo.demonstrateBridgePattern();
+        System.out.println();
+    }
+    
+    private static void demonstrateComposite() {
+        System.out.println("--- Composite Pattern ---");
+        CompositePatternDemo.demonstrateCompositePattern();
+        System.out.println();
+    }
+    
+    private static void demonstrateDecorator() {
+        System.out.println("--- Decorator Pattern ---");
+        DecoratorPatternDemo.demonstrateDecoratorPattern();
+        System.out.println();
+    }
+    
+    private static void demonstrateFacade() {
+        System.out.println("--- Facade Pattern ---");
+        FacadePatternDemo.demonstrateFacadePattern();
+        System.out.println();
+    }
+    
+    private static void demonstrateFlyweight() {
+        System.out.println("--- Flyweight Pattern ---");
+        FlyweightPatternDemo.demonstrateFlyweightPattern();
+        System.out.println();
+    }
+    
+    private static void demonstrateProxy() {
+        System.out.println("--- Proxy Pattern ---");
+        ProxyPatternDemo.demonstrateProxyPattern();
+        System.out.println();
+    }
+    
+    private static void demonstrateStrategy() {
+        System.out.println("--- Strategy Pattern ---");
+        StrategyPatternDemo.demonstrateStrategyPattern();
+        System.out.println();
+    }
+    
+    private static void demonstrateCommand() {
+        System.out.println("--- Command Pattern ---");
+        CommandPatternDemo.demonstrateCommandPattern();
+        System.out.println();
+    }
+    
+    private static void demonstrateState() {
+        System.out.println("--- State Pattern ---");
+        StatePatternDemo.demonstrateStatePattern();
+        System.out.println();
+    }
+    
+    private static void demonstrateTemplateMethod() {
+        System.out.println("--- Template Method Pattern ---");
+        TemplateMethodPatternDemo.demonstrateTemplateMethodPattern();
+        System.out.println();
+    }
+    
+    private static void demonstrateChainOfResponsibility() {
+        System.out.println("--- Chain of Responsibility Pattern ---");
+        ChainOfResponsibilityPatternDemo.demonstrateChainOfResponsibilityPattern();
+        System.out.println();
+    }
+    
+    private static void demonstrateMediator() {
+        System.out.println("--- Mediator Pattern ---");
+        MediatorPatternDemo.demonstrateMediatorPattern();
         System.out.println();
     }
 }
