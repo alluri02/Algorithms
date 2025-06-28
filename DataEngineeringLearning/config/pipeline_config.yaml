@@ -1,0 +1,86 @@
+# Configuration file for the data segmentation pipeline
+
+# Data Generation Settings
+DATA_GENERATION:
+  n_customers: 10000
+  random_seed: 42
+  include_noise: true
+  noise_level: 0.1
+
+# Data Processing Settings
+DATA_PROCESSING:
+  remove_outliers: true
+  outlier_method: "iqr"  # "iqr" or "zscore"
+  outlier_threshold: 1.5
+  fill_missing: true
+  missing_strategy: "median"  # "mean", "median", "mode"
+  normalize_features: true
+  normalization_method: "standard"  # "standard", "minmax", "robust"
+
+# Feature Engineering Settings
+FEATURE_ENGINEERING:
+  create_interaction_features: true
+  polynomial_features: false
+  polynomial_degree: 2
+  feature_selection: true
+  selection_method: "variance"  # "variance", "correlation", "mutual_info"
+  n_features: 20
+
+# Segmentation Settings
+SEGMENTATION:
+  method: "kmeans"  # "kmeans", "dbscan", "random_forest", "neural_network"
+  n_segments: 5
+  
+  # K-means specific settings
+  kmeans:
+    n_clusters: 5
+    random_state: 42
+    n_init: 10
+    max_iter: 300
+  
+  # DBSCAN specific settings
+  dbscan:
+    eps: 0.5
+    min_samples: 5
+    metric: "euclidean"
+  
+  # Random Forest specific settings
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    random_state: 42
+    n_jobs: -1
+  
+  # Neural Network specific settings
+  neural_network:
+    hidden_layers: [128, 64, 32]
+    activation: "relu"
+    optimizer: "adam"
+    learning_rate: 0.001
+    epochs: 100
+    batch_size: 32
+    dropout_rate: 0.2
+
+# Visualization Settings
+VISUALIZATION:
+  create_plots: true
+  plot_types: ["scatter", "heatmap", "distribution", "segment_profile"]
+  save_plots: true
+  plot_format: "png"  # "png", "svg", "pdf"
+  plot_dpi: 300
+
+# Output Settings
+OUTPUT:
+  save_results: true
+  output_format: ["csv", "parquet", "json"]
+  include_metadata: true
+  create_report: true
+
+# Pipeline Settings
+PIPELINE:
+  parallel_processing: true
+  n_jobs: -1
+  cache_intermediate_results: true
+  validate_data: true
+  log_level: "INFO"
+  start_dashboard: false

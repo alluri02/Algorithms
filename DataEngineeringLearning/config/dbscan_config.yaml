@@ -1,0 +1,48 @@
+# Custom configuration for DBSCAN clustering
+
+# Data Generation Settings
+DATA_GENERATION:
+  n_customers: 5000
+  random_seed: 42
+  include_noise: true
+  noise_level: 0.1
+
+# Data Processing Settings
+DATA_PROCESSING:
+  remove_outliers: true
+  outlier_method: "iqr"
+  outlier_threshold: 1.5
+  fill_missing: true
+  missing_strategy: "median"
+  normalize_features: true
+  normalization_method: "standard"
+
+# Feature Engineering Settings
+FEATURE_ENGINEERING:
+  create_interaction_features: false  # Simpler for DBSCAN
+  polynomial_features: false
+  feature_selection: true
+  selection_method: "variance"
+  n_features: 15  # Fewer features for better clustering
+
+# Segmentation Settings
+SEGMENTATION:
+  method: "dbscan"  # Using DBSCAN instead of K-means
+  
+  # DBSCAN specific settings
+  dbscan:
+    eps: 0.5          # Distance parameter
+    min_samples: 5    # Minimum samples per cluster
+    metric: "euclidean"
+
+# Visualization Settings
+VISUALIZATION:
+  create_plots: true
+  plot_format: "png"
+  include_3d_plots: false
+
+# Output Settings
+OUTPUT:
+  save_results: true
+  output_format: ["csv", "json"]
+  create_report: true

@@ -1,0 +1,104 @@
+version: '3.8'
+
+services:
+  # Main application
+  segmentation-pipeline:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai-segmentation-pipeline
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./visualizations:/app/visualizations
+      - ./reports:/app/reports
+    environment:
+      - PYTHONPATH=/app/src
+    command: python main.py
+    networks:
+      - segmentation-network
+
+  # Jupyter Notebook service
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile.jupyter
+    container_name: segmentation-jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/app/notebooks
+      - ./src:/app/src
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./visualizations:/app/visualizations
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - PYTHONPATH=/app/src
+    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''
+    networks:
+      - segmentation-network
+
+  # Streamlit Dashboard
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: segmentation-dashboard
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./src:/app/src
+    environment:
+      - PYTHONPATH=/app/src
+    command: streamlit run src/visualization/dashboard.py --server.port=8501 --server.address=0.0.0.0
+    depends_on:
+      - segmentation-pipeline
+    networks:
+      - segmentation-network
+
+  # PostgreSQL database (optional for data storage)
+  postgres:
+    image: postgres:13
+    container_name: segmentation-db
+    environment:
+      POSTGRES_DB: segmentation
+      POSTGRES_USER: segmentation_user
+      POSTGRES_PASSWORD: segmentation_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - segmentation-network
+
+  # Redis for caching (optional)
+  redis:
+    image: redis:6-alpine
+    container_name: segmentation-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - segmentation-network
+
+  # MLflow for experiment tracking (optional)
+  mlflow:
+    image: python:3.9-slim
+    container_name: segmentation-mlflow
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlflow:/mlflow
+    command: >
+      bash -c "pip install mlflow psycopg2-binary &&
+               mlflow server --host 0.0.0.0 --port 5000 --default-artifact-root /mlflow/artifacts"
+    networks:
+      - segmentation-network
+
+networks:
+  segmentation-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

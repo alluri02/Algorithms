@@ -1,0 +1,444 @@
+2025-06-27 18:05:01,939 - __main__ - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:05:01,939 - src.pipeline.pipeline_config - WARNING - Configuration file not found: C:\Users\dipeshbhakat\PersonalCode\Algorithms\DataEngineeringLearning\src\config\pipeline_config.yaml
+2025-06-27 18:05:01,943 - __main__ - INFO - Running data pipeline...
+2025-06-27 18:05:01,943 - src.pipeline.data_pipeline - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:05:01,943 - src.pipeline.data_pipeline - INFO - Step 1: Data Generation/Loading
+2025-06-27 18:05:01,944 - src.pipeline.data_pipeline - INFO - Generating synthetic customer data
+2025-06-27 18:05:01,944 - src.data_ingestion.data_generator - INFO - Generating 10000 synthetic customer records
+2025-06-27 18:05:01,980 - src.data_ingestion.data_generator - INFO - Generated dataset with shape: (10000, 23)
+2025-06-27 18:05:01,981 - src.data_ingestion.data_generator - INFO - Features: ['customer_id', 'age', 'income', 'region', 'purchase_frequency', 'avg_order_value', 'customer_lifetime', 'total_spend', 'website_visits', 'email_open_rate', 'app_usage', 'electronics_spend_pct', 'clothing_spend_pct', 'home_spend_pct', 'summer_boost', 'holiday_boost', 'recency', 'satisfaction_score', 'support_tickets', 'customer_value_score', 'engagement_score', 'risk_score', 'seasonality_index']
+2025-06-27 18:05:01,982 - src.data_ingestion.data_loader - INFO - Saving data to data\raw\customer_data.csv in csv format
+2025-06-27 18:05:02,222 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\raw\customer_data.csv
+2025-06-27 18:05:02,222 - src.pipeline.data_pipeline - INFO - Loaded data with shape: (10000, 23)
+2025-06-27 18:05:02,222 - src.pipeline.data_pipeline - INFO - Step 2: Data Preprocessing
+2025-06-27 18:05:02,222 - src.preprocessing.data_cleaner - INFO - Starting data cleaning pipeline
+2025-06-27 18:05:02,242 - src.preprocessing.data_cleaner - INFO - Handling missing values using median strategy
+2025-06-27 18:05:02,243 - src.preprocessing.data_cleaner - INFO - Found missing values in 4 columns: ['email_open_rate', 'app_usage', 'satisfaction_score', 'customer_value_score']
+2025-06-27 18:05:02,252 - src.preprocessing.data_cleaner - INFO - Missing values after imputation: 0
+2025-06-27 18:05:02,253 - src.preprocessing.data_cleaner - INFO - Removing outliers using iqr method with threshold 1.5
+2025-06-27 18:05:02,287 - src.preprocessing.data_cleaner - INFO - Removed 2117 outlier rows (21.17%)
+2025-06-27 18:05:02,287 - src.preprocessing.data_cleaner - INFO - Normalizing features using standard method
+2025-06-27 18:05:02,295 - src.preprocessing.data_cleaner - INFO - Normalized 21 numerical features
+2025-06-27 18:05:02,295 - src.preprocessing.data_cleaner - INFO - Optimizing data types
+2025-06-27 18:05:02,316 - src.preprocessing.data_cleaner - INFO - Memory usage reduced by 47.29%
+2025-06-27 18:05:02,317 - src.preprocessing.data_cleaner - INFO - Data cleaning completed. Shape: (10000, 23) -> (7883, 23)
+2025-06-27 18:05:02,317 - src.preprocessing.data_cleaner - INFO - Removed 2117 rows (21.17%)
+2025-06-27 18:05:02,317 - src.data_ingestion.data_loader - INFO - Saving data to data\processed\processed_data.csv in csv format
+2025-06-27 18:05:02,455 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\processed\processed_data.csv
+2025-06-27 18:05:02,518 - src.pipeline.data_pipeline - INFO - Step 3: Feature Engineering
+2025-06-27 18:05:02,518 - src.pipeline.data_pipeline - INFO - Creating interaction features
+2025-06-27 18:05:02,939 - src.pipeline.data_pipeline - INFO - Selecting top 20 features using variance method
+2025-06-27 18:05:02,957 - src.pipeline.data_pipeline - INFO - Feature engineering completed. Final features: 20
+2025-06-27 18:05:02,957 - src.pipeline.data_pipeline - INFO - Step 4: AI Segmentation
+2025-06-27 18:05:02,958 - src.pipeline.data_pipeline - ERROR - Pipeline execution failed: src.segmentation.clustering_model.ClusteringModel.fit_kmeans() got multiple values for keyword argument 'n_clusters'
+2025-06-27 18:05:02,958 - __main__ - ERROR - Pipeline execution failed: src.segmentation.clustering_model.ClusteringModel.fit_kmeans() got multiple values for keyword argument 'n_clusters'
+2025-06-27 18:05:47,197 - __main__ - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:05:47,197 - src.pipeline.pipeline_config - WARNING - Configuration file not found: C:\Users\dipeshbhakat\PersonalCode\Algorithms\DataEngineeringLearning\src\config\pipeline_config.yaml
+2025-06-27 18:05:47,197 - __main__ - INFO - Running data pipeline...
+2025-06-27 18:05:47,197 - src.pipeline.data_pipeline - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:05:47,197 - src.pipeline.data_pipeline - INFO - Step 1: Data Generation/Loading
+2025-06-27 18:05:47,197 - src.pipeline.data_pipeline - INFO - Loading existing data
+2025-06-27 18:05:47,206 - src.data_ingestion.data_loader - INFO - Loading CSV data from data\raw\customer_data.csv
+2025-06-27 18:05:47,265 - src.data_ingestion.data_loader - INFO - Loaded 10000 records with 23 features
+2025-06-27 18:05:47,265 - src.pipeline.data_pipeline - INFO - Loaded data with shape: (10000, 23)
+2025-06-27 18:05:47,265 - src.pipeline.data_pipeline - INFO - Step 2: Data Preprocessing
+2025-06-27 18:05:47,265 - src.preprocessing.data_cleaner - INFO - Starting data cleaning pipeline
+2025-06-27 18:05:47,265 - src.preprocessing.data_cleaner - INFO - Handling missing values using median strategy
+2025-06-27 18:05:47,278 - src.preprocessing.data_cleaner - INFO - Found missing values in 4 columns: ['email_open_rate', 'app_usage', 'satisfaction_score', 'customer_value_score']
+2025-06-27 18:05:47,283 - src.preprocessing.data_cleaner - INFO - Missing values after imputation: 0
+2025-06-27 18:05:47,283 - src.preprocessing.data_cleaner - INFO - Removing outliers using iqr method with threshold 1.5
+2025-06-27 18:05:47,306 - src.preprocessing.data_cleaner - INFO - Removed 2117 outlier rows (21.17%)
+2025-06-27 18:05:47,312 - src.preprocessing.data_cleaner - INFO - Normalizing features using standard method
+2025-06-27 18:05:47,315 - src.preprocessing.data_cleaner - INFO - Normalized 21 numerical features
+2025-06-27 18:05:47,315 - src.preprocessing.data_cleaner - INFO - Optimizing data types
+2025-06-27 18:05:47,333 - src.preprocessing.data_cleaner - INFO - Memory usage reduced by 47.29%
+2025-06-27 18:05:47,334 - src.preprocessing.data_cleaner - INFO - Data cleaning completed. Shape: (10000, 23) -> (7883, 23)
+2025-06-27 18:05:47,334 - src.preprocessing.data_cleaner - INFO - Removed 2117 rows (21.17%)
+2025-06-27 18:05:47,335 - src.data_ingestion.data_loader - INFO - Saving data to data\processed\processed_data.csv in csv format
+2025-06-27 18:05:47,461 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\processed\processed_data.csv
+2025-06-27 18:05:47,513 - src.pipeline.data_pipeline - INFO - Step 3: Feature Engineering
+2025-06-27 18:05:47,513 - src.pipeline.data_pipeline - INFO - Creating interaction features
+2025-06-27 18:05:47,581 - src.pipeline.data_pipeline - INFO - Selecting top 20 features using variance method
+2025-06-27 18:05:47,581 - src.pipeline.data_pipeline - INFO - Feature engineering completed. Final features: 20
+2025-06-27 18:05:47,596 - src.pipeline.data_pipeline - INFO - Step 4: AI Segmentation
+2025-06-27 18:05:47,596 - src.segmentation.clustering_model - INFO - Fitting K-means model with 5 clusters
+2025-06-27 18:05:50,219 - src.segmentation.clustering_model - INFO - K-means clustering completed. Found 5 clusters
+2025-06-27 18:05:50,221 - src.pipeline.data_pipeline - INFO - Step 5: Segment Analysis
+2025-06-27 18:05:50,240 - src.pipeline.data_pipeline - ERROR - Pipeline execution failed: Length of values (7883) does not match length of index (10000)
+2025-06-27 18:05:50,240 - __main__ - ERROR - Pipeline execution failed: Length of values (7883) does not match length of index (10000)
+2025-06-27 18:06:55,008 - __main__ - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:06:55,008 - src.pipeline.pipeline_config - WARNING - Configuration file not found: C:\Users\dipeshbhakat\PersonalCode\Algorithms\DataEngineeringLearning\src\config\pipeline_config.yaml
+2025-06-27 18:06:55,008 - __main__ - INFO - Running data pipeline...
+2025-06-27 18:06:55,008 - src.pipeline.data_pipeline - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:06:55,008 - src.pipeline.data_pipeline - INFO - Step 1: Data Generation/Loading
+2025-06-27 18:06:55,008 - src.pipeline.data_pipeline - INFO - Loading existing data
+2025-06-27 18:06:55,008 - src.data_ingestion.data_loader - INFO - Loading CSV data from data\raw\customer_data.csv
+2025-06-27 18:06:55,049 - src.data_ingestion.data_loader - INFO - Loaded 10000 records with 23 features
+2025-06-27 18:06:55,050 - src.pipeline.data_pipeline - INFO - Loaded data with shape: (10000, 23)
+2025-06-27 18:06:55,050 - src.pipeline.data_pipeline - INFO - Step 2: Data Preprocessing
+2025-06-27 18:06:55,050 - src.preprocessing.data_cleaner - INFO - Starting data cleaning pipeline
+2025-06-27 18:06:55,061 - src.preprocessing.data_cleaner - INFO - Handling missing values using median strategy
+2025-06-27 18:06:55,062 - src.preprocessing.data_cleaner - INFO - Found missing values in 4 columns: ['email_open_rate', 'app_usage', 'satisfaction_score', 'customer_value_score']
+2025-06-27 18:06:55,066 - src.preprocessing.data_cleaner - INFO - Missing values after imputation: 0
+2025-06-27 18:06:55,066 - src.preprocessing.data_cleaner - INFO - Removing outliers using iqr method with threshold 1.5
+2025-06-27 18:06:55,095 - src.preprocessing.data_cleaner - INFO - Removed 2117 outlier rows (21.17%)
+2025-06-27 18:06:55,097 - src.preprocessing.data_cleaner - INFO - Normalizing features using standard method
+2025-06-27 18:06:55,099 - src.preprocessing.data_cleaner - INFO - Normalized 21 numerical features
+2025-06-27 18:06:55,103 - src.preprocessing.data_cleaner - INFO - Optimizing data types
+2025-06-27 18:06:55,110 - src.preprocessing.data_cleaner - INFO - Memory usage reduced by 47.29%
+2025-06-27 18:06:55,110 - src.preprocessing.data_cleaner - INFO - Data cleaning completed. Shape: (10000, 23) -> (7883, 23)
+2025-06-27 18:06:55,110 - src.preprocessing.data_cleaner - INFO - Removed 2117 rows (21.17%)
+2025-06-27 18:06:55,119 - src.data_ingestion.data_loader - INFO - Saving data to data\processed\processed_data.csv in csv format
+2025-06-27 18:06:55,224 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\processed\processed_data.csv
+2025-06-27 18:06:55,293 - src.pipeline.data_pipeline - INFO - Step 3: Feature Engineering
+2025-06-27 18:06:55,293 - src.pipeline.data_pipeline - INFO - Creating interaction features
+2025-06-27 18:06:55,360 - src.pipeline.data_pipeline - INFO - Selecting top 20 features using variance method
+2025-06-27 18:06:55,360 - src.pipeline.data_pipeline - INFO - Feature engineering completed. Final features: 20
+2025-06-27 18:06:55,360 - src.pipeline.data_pipeline - INFO - Step 4: AI Segmentation
+2025-06-27 18:06:55,360 - src.segmentation.clustering_model - INFO - Fitting K-means model with 5 clusters
+2025-06-27 18:06:57,741 - src.segmentation.clustering_model - INFO - K-means clustering completed. Found 5 clusters
+2025-06-27 18:06:57,741 - src.pipeline.data_pipeline - INFO - Step 5: Segment Analysis
+2025-06-27 18:06:57,779 - src.pipeline.data_pipeline - ERROR - Pipeline execution failed: 'behavior'
+2025-06-27 18:06:57,779 - __main__ - ERROR - Pipeline execution failed: 'behavior'
+2025-06-27 18:07:43,038 - __main__ - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:07:43,038 - src.pipeline.pipeline_config - WARNING - Configuration file not found: C:\Users\dipeshbhakat\PersonalCode\Algorithms\DataEngineeringLearning\src\config\pipeline_config.yaml
+2025-06-27 18:07:43,038 - __main__ - INFO - Running data pipeline...
+2025-06-27 18:07:43,038 - src.pipeline.data_pipeline - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:07:43,038 - src.pipeline.data_pipeline - INFO - Step 1: Data Generation/Loading
+2025-06-27 18:07:43,038 - src.pipeline.data_pipeline - INFO - Loading existing data
+2025-06-27 18:07:43,038 - src.data_ingestion.data_loader - INFO - Loading CSV data from data\raw\customer_data.csv
+2025-06-27 18:07:43,078 - src.data_ingestion.data_loader - INFO - Loaded 10000 records with 23 features
+2025-06-27 18:07:43,078 - src.pipeline.data_pipeline - INFO - Loaded data with shape: (10000, 23)
+2025-06-27 18:07:43,078 - src.pipeline.data_pipeline - INFO - Step 2: Data Preprocessing
+2025-06-27 18:07:43,078 - src.preprocessing.data_cleaner - INFO - Starting data cleaning pipeline
+2025-06-27 18:07:43,094 - src.preprocessing.data_cleaner - INFO - Handling missing values using median strategy
+2025-06-27 18:07:43,095 - src.preprocessing.data_cleaner - INFO - Found missing values in 4 columns: ['email_open_rate', 'app_usage', 'satisfaction_score', 'customer_value_score']
+2025-06-27 18:07:43,095 - src.preprocessing.data_cleaner - INFO - Missing values after imputation: 0
+2025-06-27 18:07:43,104 - src.preprocessing.data_cleaner - INFO - Removing outliers using iqr method with threshold 1.5
+2025-06-27 18:07:43,129 - src.preprocessing.data_cleaner - INFO - Removed 2117 outlier rows (21.17%)
+2025-06-27 18:07:43,129 - src.preprocessing.data_cleaner - INFO - Normalizing features using standard method
+2025-06-27 18:07:43,129 - src.preprocessing.data_cleaner - INFO - Normalized 21 numerical features
+2025-06-27 18:07:43,129 - src.preprocessing.data_cleaner - INFO - Optimizing data types
+2025-06-27 18:07:43,143 - src.preprocessing.data_cleaner - INFO - Memory usage reduced by 47.29%
+2025-06-27 18:07:43,143 - src.preprocessing.data_cleaner - INFO - Data cleaning completed. Shape: (10000, 23) -> (7883, 23)
+2025-06-27 18:07:43,143 - src.preprocessing.data_cleaner - INFO - Removed 2117 rows (21.17%)
+2025-06-27 18:07:43,152 - src.data_ingestion.data_loader - INFO - Saving data to data\processed\processed_data.csv in csv format
+2025-06-27 18:07:43,271 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\processed\processed_data.csv
+2025-06-27 18:07:43,323 - src.pipeline.data_pipeline - INFO - Step 3: Feature Engineering
+2025-06-27 18:07:43,323 - src.pipeline.data_pipeline - INFO - Creating interaction features
+2025-06-27 18:07:43,389 - src.pipeline.data_pipeline - INFO - Selecting top 20 features using variance method
+2025-06-27 18:07:43,408 - src.pipeline.data_pipeline - INFO - Feature engineering completed. Final features: 20
+2025-06-27 18:07:43,409 - src.pipeline.data_pipeline - INFO - Step 4: AI Segmentation
+2025-06-27 18:07:43,409 - src.segmentation.clustering_model - INFO - Fitting K-means model with 5 clusters
+2025-06-27 18:07:45,738 - src.segmentation.clustering_model - INFO - K-means clustering completed. Found 5 clusters
+2025-06-27 18:07:45,738 - src.pipeline.data_pipeline - INFO - Step 5: Segment Analysis
+2025-06-27 18:07:45,761 - src.pipeline.data_pipeline - INFO - Step 6: Saving Results
+2025-06-27 18:07:45,763 - src.pipeline.data_pipeline - ERROR - Pipeline execution failed: Length of values (7883) does not match length of index (10000)
+2025-06-27 18:07:45,763 - __main__ - ERROR - Pipeline execution failed: Length of values (7883) does not match length of index (10000)
+2025-06-27 18:08:21,828 - __main__ - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:08:21,834 - src.pipeline.pipeline_config - WARNING - Configuration file not found: C:\Users\dipeshbhakat\PersonalCode\Algorithms\DataEngineeringLearning\src\config\pipeline_config.yaml
+2025-06-27 18:08:21,835 - __main__ - INFO - Running data pipeline...
+2025-06-27 18:08:21,835 - src.pipeline.data_pipeline - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:08:21,835 - src.pipeline.data_pipeline - INFO - Step 1: Data Generation/Loading
+2025-06-27 18:08:21,835 - src.pipeline.data_pipeline - INFO - Loading existing data
+2025-06-27 18:08:21,835 - src.data_ingestion.data_loader - INFO - Loading CSV data from data\raw\customer_data.csv
+2025-06-27 18:08:21,873 - src.data_ingestion.data_loader - INFO - Loaded 10000 records with 23 features
+2025-06-27 18:08:21,874 - src.pipeline.data_pipeline - INFO - Loaded data with shape: (10000, 23)
+2025-06-27 18:08:21,874 - src.pipeline.data_pipeline - INFO - Step 2: Data Preprocessing
+2025-06-27 18:08:21,874 - src.preprocessing.data_cleaner - INFO - Starting data cleaning pipeline
+2025-06-27 18:08:21,882 - src.preprocessing.data_cleaner - INFO - Handling missing values using median strategy
+2025-06-27 18:08:21,887 - src.preprocessing.data_cleaner - INFO - Found missing values in 4 columns: ['email_open_rate', 'app_usage', 'satisfaction_score', 'customer_value_score']
+2025-06-27 18:08:21,896 - src.preprocessing.data_cleaner - INFO - Missing values after imputation: 0
+2025-06-27 18:08:21,896 - src.preprocessing.data_cleaner - INFO - Removing outliers using iqr method with threshold 1.5
+2025-06-27 18:08:21,921 - src.preprocessing.data_cleaner - INFO - Removed 2117 outlier rows (21.17%)
+2025-06-27 18:08:21,921 - src.preprocessing.data_cleaner - INFO - Normalizing features using standard method
+2025-06-27 18:08:21,928 - src.preprocessing.data_cleaner - INFO - Normalized 21 numerical features
+2025-06-27 18:08:21,928 - src.preprocessing.data_cleaner - INFO - Optimizing data types
+2025-06-27 18:08:21,942 - src.preprocessing.data_cleaner - INFO - Memory usage reduced by 47.29%
+2025-06-27 18:08:21,943 - src.preprocessing.data_cleaner - INFO - Data cleaning completed. Shape: (10000, 23) -> (7883, 23)
+2025-06-27 18:08:21,943 - src.preprocessing.data_cleaner - INFO - Removed 2117 rows (21.17%)
+2025-06-27 18:08:21,943 - src.data_ingestion.data_loader - INFO - Saving data to data\processed\processed_data.csv in csv format
+2025-06-27 18:08:22,068 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\processed\processed_data.csv
+2025-06-27 18:08:22,135 - src.pipeline.data_pipeline - INFO - Step 3: Feature Engineering
+2025-06-27 18:08:22,135 - src.pipeline.data_pipeline - INFO - Creating interaction features
+2025-06-27 18:08:22,202 - src.pipeline.data_pipeline - INFO - Selecting top 20 features using variance method
+2025-06-27 18:08:22,202 - src.pipeline.data_pipeline - INFO - Feature engineering completed. Final features: 20
+2025-06-27 18:08:22,202 - src.pipeline.data_pipeline - INFO - Step 4: AI Segmentation
+2025-06-27 18:08:22,202 - src.segmentation.clustering_model - INFO - Fitting K-means model with 5 clusters
+2025-06-27 18:08:24,569 - src.segmentation.clustering_model - INFO - K-means clustering completed. Found 5 clusters
+2025-06-27 18:08:24,569 - src.pipeline.data_pipeline - INFO - Step 5: Segment Analysis
+2025-06-27 18:08:24,607 - src.pipeline.data_pipeline - INFO - Step 6: Saving Results
+2025-06-27 18:08:24,609 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.csv in csv format
+2025-06-27 18:08:24,768 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.csv
+2025-06-27 18:08:24,768 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.parquet in parquet format
+2025-06-27 18:08:25,101 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.parquet
+2025-06-27 18:08:25,117 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.json in json format
+2025-06-27 18:08:25,142 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.json
+2025-06-27 18:08:25,159 - src.pipeline.data_pipeline - INFO - Results saved successfully
+2025-06-27 18:08:25,159 - src.pipeline.data_pipeline - INFO - Pipeline completed successfully in 3.32 seconds
+2025-06-27 18:08:25,159 - __main__ - INFO - Pipeline completed successfully!
+2025-06-27 18:08:25,159 - __main__ - INFO - Number of records processed: 7883
+2025-06-27 18:08:25,159 - __main__ - INFO - Number of segments created: 5
+2025-06-27 18:08:25,159 - __main__ - INFO - Segmentation method used: kmeans
+2025-06-27 18:08:25,162 - __main__ - INFO - Generating visualizations...
+2025-06-27 18:08:25,162 - src.pipeline.data_pipeline - INFO - Generating visualizations
+2025-06-27 18:08:25,163 - src.segmentation.clustering_model - INFO - Reducing dimensions to 2 components for visualization
+2025-06-27 18:08:25,165 - src.segmentation.clustering_model - INFO - PCA explained variance: 0.804
+2025-06-27 18:08:25,165 - src.visualization.segment_visualizer - INFO - Creating cluster scatter plot
+2025-06-27 18:08:25,902 - src.visualization.segment_visualizer - INFO - Cluster scatter plot saved to visualizations/cluster_scatter.png
+2025-06-27 18:08:35,313 - src.visualization.segment_visualizer - INFO - Creating segment profile plots
+2025-06-27 18:08:35,316 - __main__ - ERROR - Pipeline execution failed: Length of values (7883) does not match length of index (10000)
+2025-06-27 18:09:20,431 - __main__ - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:09:20,431 - src.pipeline.pipeline_config - WARNING - Configuration file not found: C:\Users\dipeshbhakat\PersonalCode\Algorithms\DataEngineeringLearning\src\config\pipeline_config.yaml
+2025-06-27 18:09:20,431 - __main__ - INFO - Running data pipeline...
+2025-06-27 18:09:20,431 - src.pipeline.data_pipeline - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:09:20,431 - src.pipeline.data_pipeline - INFO - Step 1: Data Generation/Loading
+2025-06-27 18:09:20,431 - src.pipeline.data_pipeline - INFO - Loading existing data
+2025-06-27 18:09:20,431 - src.data_ingestion.data_loader - INFO - Loading CSV data from data\raw\customer_data.csv
+2025-06-27 18:09:20,484 - src.data_ingestion.data_loader - INFO - Loaded 10000 records with 23 features
+2025-06-27 18:09:20,484 - src.pipeline.data_pipeline - INFO - Loaded data with shape: (10000, 23)
+2025-06-27 18:09:20,484 - src.pipeline.data_pipeline - INFO - Step 2: Data Preprocessing
+2025-06-27 18:09:20,484 - src.preprocessing.data_cleaner - INFO - Starting data cleaning pipeline
+2025-06-27 18:09:20,499 - src.preprocessing.data_cleaner - INFO - Handling missing values using median strategy
+2025-06-27 18:09:20,509 - src.preprocessing.data_cleaner - INFO - Found missing values in 4 columns: ['email_open_rate', 'app_usage', 'satisfaction_score', 'customer_value_score']
+2025-06-27 18:09:20,518 - src.preprocessing.data_cleaner - INFO - Missing values after imputation: 0
+2025-06-27 18:09:20,518 - src.preprocessing.data_cleaner - INFO - Removing outliers using iqr method with threshold 1.5
+2025-06-27 18:09:20,561 - src.preprocessing.data_cleaner - INFO - Removed 2117 outlier rows (21.17%)
+2025-06-27 18:09:20,561 - src.preprocessing.data_cleaner - INFO - Normalizing features using standard method
+2025-06-27 18:09:20,574 - src.preprocessing.data_cleaner - INFO - Normalized 21 numerical features
+2025-06-27 18:09:20,575 - src.preprocessing.data_cleaner - INFO - Optimizing data types
+2025-06-27 18:09:20,590 - src.preprocessing.data_cleaner - INFO - Memory usage reduced by 47.29%
+2025-06-27 18:09:20,590 - src.preprocessing.data_cleaner - INFO - Data cleaning completed. Shape: (10000, 23) -> (7883, 23)
+2025-06-27 18:09:20,590 - src.preprocessing.data_cleaner - INFO - Removed 2117 rows (21.17%)
+2025-06-27 18:09:20,596 - src.data_ingestion.data_loader - INFO - Saving data to data\processed\processed_data.csv in csv format
+2025-06-27 18:09:20,764 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\processed\processed_data.csv
+2025-06-27 18:09:20,848 - src.pipeline.data_pipeline - INFO - Step 3: Feature Engineering
+2025-06-27 18:09:20,848 - src.pipeline.data_pipeline - INFO - Creating interaction features
+2025-06-27 18:09:21,281 - src.pipeline.data_pipeline - INFO - Selecting top 20 features using variance method
+2025-06-27 18:09:21,281 - src.pipeline.data_pipeline - INFO - Feature engineering completed. Final features: 20
+2025-06-27 18:09:21,297 - src.pipeline.data_pipeline - INFO - Step 4: AI Segmentation
+2025-06-27 18:09:21,297 - src.segmentation.clustering_model - INFO - Fitting K-means model with 5 clusters
+2025-06-27 18:09:24,521 - src.segmentation.clustering_model - INFO - K-means clustering completed. Found 5 clusters
+2025-06-27 18:09:24,529 - src.pipeline.data_pipeline - INFO - Step 5: Segment Analysis
+2025-06-27 18:09:24,553 - src.pipeline.data_pipeline - INFO - Step 6: Saving Results
+2025-06-27 18:09:24,558 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.csv in csv format
+2025-06-27 18:09:24,669 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.csv
+2025-06-27 18:09:24,669 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.parquet in parquet format
+2025-06-27 18:09:24,981 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.parquet
+2025-06-27 18:09:24,981 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.json in json format
+2025-06-27 18:09:25,032 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.json
+2025-06-27 18:09:25,038 - src.pipeline.data_pipeline - INFO - Results saved successfully
+2025-06-27 18:09:25,038 - src.pipeline.data_pipeline - INFO - Pipeline completed successfully in 4.61 seconds
+2025-06-27 18:09:25,038 - __main__ - INFO - Pipeline completed successfully!
+2025-06-27 18:09:25,038 - __main__ - INFO - Number of records processed: 7883
+2025-06-27 18:09:25,038 - __main__ - INFO - Number of segments created: 5
+2025-06-27 18:09:25,038 - __main__ - INFO - Segmentation method used: kmeans
+2025-06-27 18:09:25,038 - __main__ - INFO - Generating visualizations...
+2025-06-27 18:09:25,045 - src.pipeline.data_pipeline - INFO - Generating visualizations
+2025-06-27 18:09:25,045 - src.segmentation.clustering_model - INFO - Reducing dimensions to 2 components for visualization
+2025-06-27 18:09:25,049 - src.segmentation.clustering_model - INFO - PCA explained variance: 0.804
+2025-06-27 18:09:25,049 - src.visualization.segment_visualizer - INFO - Creating cluster scatter plot
+2025-06-27 18:09:26,724 - src.visualization.segment_visualizer - INFO - Cluster scatter plot saved to visualizations/cluster_scatter.png
+2025-06-27 18:09:38,916 - src.visualization.segment_visualizer - INFO - Creating segment profile plots
+2025-06-27 18:09:47,596 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:09:47,604 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:09:47,647 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:09:47,662 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:09:47,690 - __main__ - ERROR - Pipeline execution failed: 'region'
+2025-06-27 18:42:54,073 - __main__ - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:42:54,074 - src.pipeline.pipeline_config - WARNING - Configuration file not found: C:\Users\dipeshbhakat\PersonalCode\Algorithms\DataEngineeringLearning\src\config\pipeline_config.yaml
+2025-06-27 18:42:54,075 - __main__ - INFO - Running data pipeline...
+2025-06-27 18:42:54,075 - src.pipeline.data_pipeline - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:42:54,076 - src.pipeline.data_pipeline - INFO - Step 1: Data Generation/Loading
+2025-06-27 18:42:54,076 - src.pipeline.data_pipeline - INFO - Loading existing data
+2025-06-27 18:42:54,076 - src.data_ingestion.data_loader - INFO - Loading CSV data from data\raw\customer_data.csv
+2025-06-27 18:42:54,123 - src.data_ingestion.data_loader - INFO - Loaded 10000 records with 23 features
+2025-06-27 18:42:54,123 - src.pipeline.data_pipeline - INFO - Loaded data with shape: (10000, 23)
+2025-06-27 18:42:54,124 - src.pipeline.data_pipeline - INFO - Step 2: Data Preprocessing
+2025-06-27 18:42:54,124 - src.preprocessing.data_cleaner - INFO - Starting data cleaning pipeline
+2025-06-27 18:42:54,136 - src.preprocessing.data_cleaner - INFO - Handling missing values using median strategy
+2025-06-27 18:42:54,137 - src.preprocessing.data_cleaner - INFO - Found missing values in 4 columns: ['email_open_rate', 'app_usage', 'satisfaction_score', 'customer_value_score']
+2025-06-27 18:42:54,145 - src.preprocessing.data_cleaner - INFO - Missing values after imputation: 0
+2025-06-27 18:42:54,146 - src.preprocessing.data_cleaner - INFO - Removing outliers using iqr method with threshold 1.5
+2025-06-27 18:42:54,174 - src.preprocessing.data_cleaner - INFO - Removed 2117 outlier rows (21.17%)
+2025-06-27 18:42:54,175 - src.preprocessing.data_cleaner - INFO - Normalizing features using standard method
+2025-06-27 18:42:54,182 - src.preprocessing.data_cleaner - INFO - Normalized 21 numerical features
+2025-06-27 18:42:54,182 - src.preprocessing.data_cleaner - INFO - Optimizing data types
+2025-06-27 18:42:54,201 - src.preprocessing.data_cleaner - INFO - Memory usage reduced by 47.14%
+2025-06-27 18:42:54,201 - src.preprocessing.data_cleaner - INFO - Data cleaning completed. Shape: (10000, 23) -> (7883, 23)
+2025-06-27 18:42:54,201 - src.preprocessing.data_cleaner - INFO - Removed 2117 rows (21.17%)
+2025-06-27 18:42:54,202 - src.data_ingestion.data_loader - INFO - Saving data to data\processed\processed_data.csv in csv format
+2025-06-27 18:42:54,342 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\processed\processed_data.csv
+2025-06-27 18:42:54,412 - src.pipeline.data_pipeline - INFO - Step 3: Feature Engineering
+2025-06-27 18:42:54,415 - src.pipeline.data_pipeline - INFO - Creating interaction features
+2025-06-27 18:42:54,817 - src.pipeline.data_pipeline - INFO - Selecting top 20 features using variance method
+2025-06-27 18:42:54,825 - src.pipeline.data_pipeline - INFO - Feature engineering completed. Final features: 20
+2025-06-27 18:42:54,826 - src.pipeline.data_pipeline - INFO - Step 4: AI Segmentation
+2025-06-27 18:42:54,826 - src.segmentation.clustering_model - INFO - Fitting K-means model with 5 clusters
+2025-06-27 18:42:57,450 - src.segmentation.clustering_model - INFO - K-means clustering completed. Found 5 clusters
+2025-06-27 18:42:57,452 - src.pipeline.data_pipeline - INFO - Step 5: Segment Analysis
+2025-06-27 18:42:57,471 - src.pipeline.data_pipeline - INFO - Step 6: Saving Results
+2025-06-27 18:42:57,473 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.csv in csv format
+2025-06-27 18:42:57,592 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.csv
+2025-06-27 18:42:57,593 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.parquet in parquet format
+2025-06-27 18:42:57,886 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.parquet
+2025-06-27 18:42:57,887 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.json in json format
+2025-06-27 18:42:57,925 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.json
+2025-06-27 18:42:57,934 - src.pipeline.data_pipeline - INFO - Results saved successfully
+2025-06-27 18:42:57,935 - src.pipeline.data_pipeline - INFO - Pipeline completed successfully in 3.86 seconds
+2025-06-27 18:42:57,935 - __main__ - INFO - Pipeline completed successfully!
+2025-06-27 18:42:57,935 - __main__ - INFO - Number of records processed: 7883
+2025-06-27 18:42:57,935 - __main__ - INFO - Number of segments created: 5
+2025-06-27 18:42:57,935 - __main__ - INFO - Segmentation method used: kmeans
+2025-06-27 18:42:57,936 - __main__ - INFO - Generating visualizations...
+2025-06-27 18:42:57,936 - src.pipeline.data_pipeline - INFO - Generating visualizations
+2025-06-27 18:42:57,936 - src.segmentation.clustering_model - INFO - Reducing dimensions to 2 components for visualization
+2025-06-27 18:42:57,938 - src.segmentation.clustering_model - INFO - PCA explained variance: 0.804
+2025-06-27 18:42:57,938 - src.visualization.segment_visualizer - INFO - Creating cluster scatter plot
+2025-06-27 18:42:59,812 - src.visualization.segment_visualizer - INFO - Cluster scatter plot saved to visualizations/cluster_scatter.png
+2025-06-27 18:43:11,003 - src.visualization.segment_visualizer - INFO - Creating segment profile plots
+2025-06-27 18:43:14,263 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:43:14,270 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:43:14,300 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:43:14,306 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:43:14,325 - __main__ - ERROR - Pipeline execution failed: 'region'
+2025-06-27 18:44:17,029 - __main__ - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:44:17,030 - src.pipeline.pipeline_config - WARNING - Configuration file not found: C:\Users\dipeshbhakat\PersonalCode\Algorithms\DataEngineeringLearning\src\config\pipeline_config.yaml
+2025-06-27 18:44:17,031 - __main__ - INFO - Running data pipeline...
+2025-06-27 18:44:17,031 - src.pipeline.data_pipeline - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:44:17,032 - src.pipeline.data_pipeline - INFO - Step 1: Data Generation/Loading
+2025-06-27 18:44:17,032 - src.pipeline.data_pipeline - INFO - Loading existing data
+2025-06-27 18:44:17,032 - src.data_ingestion.data_loader - INFO - Loading CSV data from data\raw\customer_data.csv
+2025-06-27 18:44:17,073 - src.data_ingestion.data_loader - INFO - Loaded 10000 records with 23 features
+2025-06-27 18:44:17,073 - src.pipeline.data_pipeline - INFO - Loaded data with shape: (10000, 23)
+2025-06-27 18:44:17,074 - src.pipeline.data_pipeline - INFO - Step 2: Data Preprocessing
+2025-06-27 18:44:17,074 - src.preprocessing.data_cleaner - INFO - Starting data cleaning pipeline
+2025-06-27 18:44:17,086 - src.preprocessing.data_cleaner - INFO - Handling missing values using median strategy
+2025-06-27 18:44:17,088 - src.preprocessing.data_cleaner - INFO - Found missing values in 4 columns: ['email_open_rate', 'app_usage', 'satisfaction_score', 'customer_value_score']
+2025-06-27 18:44:17,097 - src.preprocessing.data_cleaner - INFO - Missing values after imputation: 0
+2025-06-27 18:44:17,098 - src.preprocessing.data_cleaner - INFO - Removing outliers using iqr method with threshold 1.5
+2025-06-27 18:44:17,122 - src.preprocessing.data_cleaner - INFO - Removed 2117 outlier rows (21.17%)
+2025-06-27 18:44:17,122 - src.preprocessing.data_cleaner - INFO - Normalizing features using standard method
+2025-06-27 18:44:17,130 - src.preprocessing.data_cleaner - INFO - Normalized 21 numerical features
+2025-06-27 18:44:17,130 - src.preprocessing.data_cleaner - INFO - Optimizing data types
+2025-06-27 18:44:17,145 - src.preprocessing.data_cleaner - INFO - Memory usage reduced by 47.14%
+2025-06-27 18:44:17,146 - src.preprocessing.data_cleaner - INFO - Data cleaning completed. Shape: (10000, 23) -> (7883, 23)
+2025-06-27 18:44:17,146 - src.preprocessing.data_cleaner - INFO - Removed 2117 rows (21.17%)
+2025-06-27 18:44:17,147 - src.data_ingestion.data_loader - INFO - Saving data to data\processed\processed_data.csv in csv format
+2025-06-27 18:44:17,269 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\processed\processed_data.csv
+2025-06-27 18:44:17,331 - src.pipeline.data_pipeline - INFO - Step 3: Feature Engineering
+2025-06-27 18:44:17,332 - src.pipeline.data_pipeline - INFO - Creating interaction features
+2025-06-27 18:44:17,398 - src.pipeline.data_pipeline - INFO - Selecting top 20 features using variance method
+2025-06-27 18:44:17,408 - src.pipeline.data_pipeline - INFO - Feature engineering completed. Final features: 20
+2025-06-27 18:44:17,409 - src.pipeline.data_pipeline - INFO - Step 4: AI Segmentation
+2025-06-27 18:44:17,409 - src.segmentation.clustering_model - INFO - Fitting K-means model with 5 clusters
+2025-06-27 18:44:19,863 - src.segmentation.clustering_model - INFO - K-means clustering completed. Found 5 clusters
+2025-06-27 18:44:19,865 - src.pipeline.data_pipeline - INFO - Step 5: Segment Analysis
+2025-06-27 18:44:19,885 - src.pipeline.data_pipeline - INFO - Step 6: Saving Results
+2025-06-27 18:44:19,887 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.csv in csv format
+2025-06-27 18:44:19,993 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.csv
+2025-06-27 18:44:19,993 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.parquet in parquet format
+2025-06-27 18:44:20,044 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.parquet
+2025-06-27 18:44:20,044 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.json in json format
+2025-06-27 18:44:20,083 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.json
+2025-06-27 18:44:20,091 - src.pipeline.data_pipeline - INFO - Results saved successfully
+2025-06-27 18:44:20,092 - src.pipeline.data_pipeline - INFO - Pipeline completed successfully in 3.06 seconds
+2025-06-27 18:44:20,092 - __main__ - INFO - Pipeline completed successfully!
+2025-06-27 18:44:20,093 - __main__ - INFO - Number of records processed: 7883
+2025-06-27 18:44:20,093 - __main__ - INFO - Number of segments created: 5
+2025-06-27 18:44:20,093 - __main__ - INFO - Segmentation method used: kmeans
+2025-06-27 18:44:20,093 - __main__ - INFO - Generating visualizations...
+2025-06-27 18:44:20,093 - src.pipeline.data_pipeline - INFO - Generating visualizations
+2025-06-27 18:44:20,093 - src.segmentation.clustering_model - INFO - Reducing dimensions to 2 components for visualization
+2025-06-27 18:44:20,096 - src.segmentation.clustering_model - INFO - PCA explained variance: 0.804
+2025-06-27 18:44:20,096 - src.visualization.segment_visualizer - INFO - Creating cluster scatter plot
+2025-06-27 18:44:20,951 - src.visualization.segment_visualizer - INFO - Cluster scatter plot saved to visualizations/cluster_scatter.png
+2025-06-27 18:44:26,263 - src.visualization.segment_visualizer - INFO - Creating segment profile plots
+2025-06-27 18:44:29,019 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:29,026 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:29,056 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:29,063 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:29,089 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:29,096 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:29,124 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:29,131 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:35,571 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:35,637 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:35,714 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:35,723 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:35,760 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:35,766 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:44:35,789 - __main__ - ERROR - Pipeline execution failed: Could not interpret value `recency` for `y`. An entry with this name does not appear in `data`.
+2025-06-27 18:45:24,234 - __main__ - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:45:24,234 - src.pipeline.pipeline_config - WARNING - Configuration file not found: C:\Users\dipeshbhakat\PersonalCode\Algorithms\DataEngineeringLearning\src\config\pipeline_config.yaml
+2025-06-27 18:45:24,236 - __main__ - INFO - Running data pipeline...
+2025-06-27 18:45:24,236 - src.pipeline.data_pipeline - INFO - Starting AI-powered data segmentation pipeline
+2025-06-27 18:45:24,236 - src.pipeline.data_pipeline - INFO - Step 1: Data Generation/Loading
+2025-06-27 18:45:24,237 - src.pipeline.data_pipeline - INFO - Loading existing data
+2025-06-27 18:45:24,237 - src.data_ingestion.data_loader - INFO - Loading CSV data from data\raw\customer_data.csv
+2025-06-27 18:45:24,281 - src.data_ingestion.data_loader - INFO - Loaded 10000 records with 23 features
+2025-06-27 18:45:24,281 - src.pipeline.data_pipeline - INFO - Loaded data with shape: (10000, 23)
+2025-06-27 18:45:24,282 - src.pipeline.data_pipeline - INFO - Step 2: Data Preprocessing
+2025-06-27 18:45:24,282 - src.preprocessing.data_cleaner - INFO - Starting data cleaning pipeline
+2025-06-27 18:45:24,294 - src.preprocessing.data_cleaner - INFO - Handling missing values using median strategy
+2025-06-27 18:45:24,295 - src.preprocessing.data_cleaner - INFO - Found missing values in 4 columns: ['email_open_rate', 'app_usage', 'satisfaction_score', 'customer_value_score']
+2025-06-27 18:45:24,303 - src.preprocessing.data_cleaner - INFO - Missing values after imputation: 0
+2025-06-27 18:45:24,304 - src.preprocessing.data_cleaner - INFO - Removing outliers using iqr method with threshold 1.5
+2025-06-27 18:45:24,336 - src.preprocessing.data_cleaner - INFO - Removed 2117 outlier rows (21.17%)
+2025-06-27 18:45:24,336 - src.preprocessing.data_cleaner - INFO - Normalizing features using standard method
+2025-06-27 18:45:24,343 - src.preprocessing.data_cleaner - INFO - Normalized 21 numerical features
+2025-06-27 18:45:24,343 - src.preprocessing.data_cleaner - INFO - Optimizing data types
+2025-06-27 18:45:24,358 - src.preprocessing.data_cleaner - INFO - Memory usage reduced by 47.14%
+2025-06-27 18:45:24,359 - src.preprocessing.data_cleaner - INFO - Data cleaning completed. Shape: (10000, 23) -> (7883, 23)
+2025-06-27 18:45:24,359 - src.preprocessing.data_cleaner - INFO - Removed 2117 rows (21.17%)
+2025-06-27 18:45:24,360 - src.data_ingestion.data_loader - INFO - Saving data to data\processed\processed_data.csv in csv format
+2025-06-27 18:45:24,480 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\processed\processed_data.csv
+2025-06-27 18:45:24,540 - src.pipeline.data_pipeline - INFO - Step 3: Feature Engineering
+2025-06-27 18:45:24,543 - src.pipeline.data_pipeline - INFO - Creating interaction features
+2025-06-27 18:45:24,609 - src.pipeline.data_pipeline - INFO - Selecting top 20 features using variance method
+2025-06-27 18:45:24,618 - src.pipeline.data_pipeline - INFO - Feature engineering completed. Final features: 20
+2025-06-27 18:45:24,619 - src.pipeline.data_pipeline - INFO - Step 4: AI Segmentation
+2025-06-27 18:45:24,619 - src.segmentation.clustering_model - INFO - Fitting K-means model with 5 clusters
+2025-06-27 18:45:27,036 - src.segmentation.clustering_model - INFO - K-means clustering completed. Found 5 clusters
+2025-06-27 18:45:27,039 - src.pipeline.data_pipeline - INFO - Step 5: Segment Analysis
+2025-06-27 18:45:27,065 - src.pipeline.data_pipeline - INFO - Step 6: Saving Results
+2025-06-27 18:45:27,067 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.csv in csv format
+2025-06-27 18:45:27,194 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.csv
+2025-06-27 18:45:27,195 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.parquet in parquet format
+2025-06-27 18:45:27,250 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.parquet
+2025-06-27 18:45:27,252 - src.data_ingestion.data_loader - INFO - Saving data to data\output\segmented_customers.json in json format
+2025-06-27 18:45:27,463 - src.data_ingestion.data_loader - INFO - Data saved successfully to data\output\segmented_customers.json
+2025-06-27 18:45:27,490 - src.pipeline.data_pipeline - INFO - Results saved successfully
+2025-06-27 18:45:27,490 - src.pipeline.data_pipeline - INFO - Pipeline completed successfully in 3.25 seconds
+2025-06-27 18:45:27,491 - __main__ - INFO - Pipeline completed successfully!
+2025-06-27 18:45:27,491 - __main__ - INFO - Number of records processed: 7883
+2025-06-27 18:45:27,491 - __main__ - INFO - Number of segments created: 5
+2025-06-27 18:45:27,491 - __main__ - INFO - Segmentation method used: kmeans
+2025-06-27 18:45:27,491 - __main__ - INFO - Generating visualizations...
+2025-06-27 18:45:27,492 - src.pipeline.data_pipeline - INFO - Generating visualizations
+2025-06-27 18:45:27,492 - src.segmentation.clustering_model - INFO - Reducing dimensions to 2 components for visualization
+2025-06-27 18:45:27,494 - src.segmentation.clustering_model - INFO - PCA explained variance: 0.804
+2025-06-27 18:45:27,494 - src.visualization.segment_visualizer - INFO - Creating cluster scatter plot
+2025-06-27 18:45:28,294 - src.visualization.segment_visualizer - INFO - Cluster scatter plot saved to visualizations/cluster_scatter.png
+2025-06-27 18:45:53,142 - src.visualization.segment_visualizer - INFO - Creating segment profile plots
+2025-06-27 18:45:56,733 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:45:56,740 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:45:56,769 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:45:56,777 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:45:56,804 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:45:56,811 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:45:56,839 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:45:56,845 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:46:25,793 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:46:25,806 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:46:25,855 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:46:25,863 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:46:25,896 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:46:25,906 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:46:25,936 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:46:25,943 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:46:31,122 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:46:31,134 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:46:31,178 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:46:31,187 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-27 18:46:49,479 - __main__ - ERROR - Pipeline execution failed: Could not interpret value `satisfaction_score` for `y`. An entry with this name does not appear in `data`.
