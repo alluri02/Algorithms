@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run GitHub Agent",
+			"type": "shell",
+			"command": "C:\\/Users\\/dipeshbhakat\\/AppData\\/Local\\/Programs\\/Python\\/Python313\\/python.exe",
+			"args": [
+				"main.py"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}

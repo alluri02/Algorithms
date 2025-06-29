@@ -1,0 +1,94 @@
+# Assignment rules for GitHub Issues AI Agent
+# Define rules for automatically assigning owners to issues
+
+assignment_rules:
+  # Bug Reports - High priority for development team
+  - name: "Critical Bugs"
+    keywords: ["critical", "urgent", "crash", "security", "data loss"]
+    labels: ["bug", "critical", "security"]
+    owners: ["lead_developer", "security_engineer"]
+    priority: 5
+    conditions:
+      severity: "high"
+  
+  - name: "Bug Reports" 
+    keywords: ["bug", "error", "broken", "not working", "issue", "problem"]
+    labels: ["bug"]
+    owners: ["developer1", "developer2", "qa_engineer"]
+    priority: 3
+  
+  # Feature Requests - Product team
+  - name: "New Features"
+    keywords: ["feature", "enhancement", "improvement", "add", "implement"]
+    labels: ["enhancement", "feature"]
+    owners: ["product_manager", "lead_developer"]
+    priority: 3
+  
+  - name: "UI/UX Improvements"
+    keywords: ["ui", "ux", "design", "interface", "user experience", "usability"]
+    labels: ["ui", "ux", "design"]
+    owners: ["ui_designer", "frontend_developer"]
+    priority: 2
+  
+  # Documentation - Technical writing team
+  - name: "Documentation"
+    keywords: ["documentation", "docs", "readme", "guide", "tutorial", "help"]
+    labels: ["documentation"]
+    owners: ["tech_writer", "maintainer"]
+    priority: 2
+  
+  # API and Integration
+  - name: "API Issues"
+    keywords: ["api", "endpoint", "integration", "webhook", "rest", "graphql"]
+    labels: ["api"]
+    owners: ["backend_developer", "api_engineer"]
+    priority: 3
+  
+  # Performance and Optimization  
+  - name: "Performance Issues"
+    keywords: ["performance", "slow", "optimization", "memory", "cpu", "latency"]
+    labels: ["performance"]
+    owners: ["performance_engineer", "senior_developer"]
+    priority: 4
+  
+  # Testing and Quality
+  - name: "Testing Issues"
+    keywords: ["test", "testing", "unit test", "integration test", "coverage"]
+    labels: ["testing"]
+    owners: ["qa_engineer", "test_engineer"]  
+    priority: 2
+  
+  # Infrastructure and DevOps
+  - name: "Infrastructure"
+    keywords: ["deployment", "infrastructure", "devops", "ci/cd", "docker", "kubernetes"]
+    labels: ["infrastructure", "devops"]
+    owners: ["devops_engineer", "sre"]
+    priority: 3
+  
+  # Dependencies and Maintenance
+  - name: "Dependencies"
+    keywords: ["dependency", "package", "library", "update", "upgrade", "vulnerability"]
+    labels: ["dependencies"]
+    owners: ["maintainer", "security_engineer"]
+    priority: 2
+  
+  # Questions and Support
+  - name: "Questions and Support"
+    keywords: ["question", "help", "how to", "support", "clarification"]
+    labels: ["question", "help wanted"]
+    owners: ["community_manager", "maintainer"]
+    priority: 1
+
+# Default assignment settings
+default_settings:
+  # Fallback owner if no rules match
+  fallback_owner: "maintainer"
+  
+  # Minimum confidence score to make an assignment
+  min_confidence: 0.3
+  
+  # Whether to assign multiple owners for complex issues
+  allow_multiple_owners: false
+  
+  # Maximum number of alternative owners to suggest
+  max_alternatives: 3
