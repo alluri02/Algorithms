@@ -7,7 +7,7 @@ to ensure maximum operational efficiency while maintaining safety standards.
 
 Core Components:
 1. Drone State Management
-2. Assignment Optimization  
+2. Assignment Optimization 
 3. Battery Management
 4. Maintenance Scheduling
 5. Load Balancing
